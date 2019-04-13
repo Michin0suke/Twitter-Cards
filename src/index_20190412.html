@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<!-- ファイル構造の参考: https://qiita.com/y_hokkey/items/871c23c24d31021d7c40 -->
+	<head>
+		<title>Twitter Cards</title>
+		<meta charset="utf-8">
+		<meta name="description" content="Twitterでリンク付きの画像をツイートできます。">
+		<!--Twitterでリンク付きの画像をツイートできます。-->
+		<meta name="keywords" content="Twitter,Tweet,ツイッター,ツイート,picture,link,画像,リンク,twittercard,twitterカード">
+		
+		<!-- URLの正規化 -->
+		<link rel="canonical" href="http://twitter-cards.com">
+		
+		<!-- アプリとして表示 -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+
+		<!-- ホーム画面 -->
+		<meta name="apple-mobile-web-app-title" content="Maezawa">
+    <!-- Apple Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+		
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@Twi_Cards" />
+		<meta property="og:url" content="http://twitter-cards.com" />
+		<meta property="og:title" content="Twitter Cards" />
+		<meta property="og:description" content="<font color=red>Twitterカードを再現してみた</font>" />
+		<meta property="og:image" content="http://twitter-cards.com/assets/img/card.png" />
+		<!-- 参考: https://saruwakakun.com/html-css/reference/twitter-card -->
+		<!-- 旧参考: https://qiita.com/Hosh0801ict/items/86bd0810fe57a4620f9e -->
+		
+		<!-- Viewport -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		
+		<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+		<![endif]-->
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		
+		<link rel="stylesheet" href="assets/css/style.css">
+	</head>
+	
+	<body>
+		<div id="wrapper">
+			<header>
+				<!--<img id="header-image" src="assets/img/header-image">-->
+				<h1 class="header-title">Twitter Cards</h1>
+			</header>
+			
+			<div class="twitter-instance mobile">
+				<a href="https://twitter.com/sqroller" target="_blank"></a>
+				<div class="twitter-instance-picture-frame mobile">
+					<img class="twitter-instance-picture mobile" src="assets/img/roa.jpg">
+				</div>
+				<form class="twitter-instance-title mobile">s</form>
+				<p class="twitter-instance-url mobile">twitter-cards.com</p>
+			</div>
+			
+			<div class="twitter-instance pc">
+				<a href="https://twitter.com/sqroller" target="_blank"></a>
+				<div class="twitter-instance-picture-frame pc">
+					<img class="twitter-instance-picture pc" src="assets/img/debi.jpg">
+				</div>
+				<p class="twitter-instance-title pc">Twitterカードを再現してみた</p>
+				<p class="twitter-instance-description pc">これはPC版の表示。上のやつはモバイルアプリの表示。</p>
+				<p class="twitter-instance-url pc">twitter-cards.com</p>
+			</div>
+			
+			<div class="fotter-margin"></div>
+		</div>
+	</body>
+</html>

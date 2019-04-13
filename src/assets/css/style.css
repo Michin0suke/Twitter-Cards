@@ -1,0 +1,318 @@
+@charset "utf-8";
+/* Color-Twitter: #00acee */
+
+/*------------------------リセットCSS -----------------------
+		引用: http://html5doctor.com/html-5-reset-stylesheet/ */
+
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+/*----------------リセットCSS ここまで------------------*/
+
+/* フォーム　リセット　スニペット */
+/*
+input, button, textarea, select {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+*/
+
+/*---全体---*/
+html{
+	width: 100%;
+	height: 100%;
+	background-color:#F0F0F0;
+}
+body{
+	width: 100%;
+	height:100%;
+	font-family: 'Helvetica Neue','Helvetica','Arial',sans-serif;
+	overflow-x: hidden;
+}
+
+#wrapper{
+	/*position: fixed;*/
+	width: 100%;
+	height: 100%;
+}
+
+/*--- ヘッダー ---*/
+header{
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 50px;
+	background-color: #00acee;
+}
+
+.header-title{
+	display: table;
+	color: white;
+	margin:auto;
+	padding-top: 17px;
+}	
+
+.twitter-instance{
+	position: relative;
+	display: block;
+	border: solid 1px #DDD;
+	border-radius: 2vw;
+	width: 70vw;
+	max-width:350px;
+	margin: 0 auto;
+	margin-top: 5vw;
+	overflow: hidden;
+	background-color: white;
+}
+@media (min-width:500px) {
+	.twitter-instance{
+		margin-top: 25px;
+		border-radius: 10px;
+	}
+}
+.twitter-instance.mobile{
+	/* ratio 1.38 */
+	height: 50vw;
+	max-height:253px; /* 350/1.38 */
+}
+.twitter-instance.pc{
+	/* ratio 1.49 */
+	height: 47vw;
+	max-height:235px; /* 350/1.49 */
+}
+.twitter-instance:hover{
+	border: solid 1px #BBB;
+	background-color: whitesmoke;
+}
+.twitter-instance > a{
+	position:absolute;
+	height: 100%;
+	width:100%;
+	left:0;
+	top:0;
+}
+
+/* Twitterカード - 画像*/
+.twitter-instance-picture-frame{
+	display: block;
+	width:100%;
+	margin:0;
+	overflow: hidden;
+}
+.twitter-instance-picture-frame.mobile{
+	height:72%;
+}
+.twitter-instance-picture-frame.pc{
+	height:75%;
+}
+/* なんでうまくいっているのかわからない */
+.twitter-instance-picture{
+	width:100%;
+	height:auto;
+}
+
+/* Twitterカード - タイトル*/
+.twitter-instance-title{
+	color: #333;
+}
+.twitter-instance-title.mobile{
+	font-size: 3.5vw;
+	padding: 3.5% 3% 0;
+	font-weight: 200;
+}
+@media (min-width:500px){
+	.twitter-instance-title.mobile{
+		font-size: 17.5px;
+}}
+.twitter-instance-title.pc{
+	font-size: 2vw;
+	padding: 2.5% 2.5% 0;
+	font-weight: 600;
+}
+@media (min-width:500px){
+	.twitter-instance-title.pc{
+		font-size: 10px;
+}}
+
+/* フォーム */
+input{
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+input[name="submit"]{
+	position: absolute;
+	top:90%;
+	left:89%;
+	padding: 3px;
+	background-color: #00acee;
+	color: white;
+	border-radius:3px;
+}
+
+.picture-upload{
+	position: absolute;
+	display: none;
+}
+input[name="upfile"]{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:75%;
+	display: none;
+}
+
+/* Twitterカード - 説明文（PC版限定）*/
+.twitter-instance-description.pc{
+	font-size: 2vw;
+	padding: 1.5% 2.5% 0;
+	font-weight: 300;
+}
+@media (min-width:500px){
+	.twitter-instance-description.pc{
+		font-size: 10px;
+}}
+
+/* Twitterカード - URL */
+.twitter-instance-url{
+}
+.twitter-instance-url.mobile{
+	font-size: 3.5vw;
+	color: #557;
+	padding: 2.5% 3.5% 0;
+	font-weight: 200;
+}
+@media (min-width:500px){
+	.twitter-instance-url.mobile{
+		font-size: 17.5px;
+}}
+.twitter-instance-url.pc{
+	font-size: 2vw;
+	color: #99A;
+	padding: 2% 3% 0;
+	font-weight: 400;
+}
+@media (min-width:500px){
+	.twitter-instance-url.pc{
+		font-size: 10px;
+}}
+
+/* ページ下部の余白 */
+.fotter-margin{
+	display: block;
+	width:100%;
+	height: 50px;
+}
