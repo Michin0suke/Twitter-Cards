@@ -162,29 +162,31 @@ header{
 	position: relative;
 	display: block;
 	border: solid 1px #DDD;
-	border-radius: 2vw;
-	width: 70vw;
-	max-width:350px;
+	border-radius: 2.5vw;
+	width: 85vw;
+	max-width:calc(800px*85/100);
 	margin: 0 auto;
-	margin-top: 5vw;
+	margin-top: 25vw;
 	overflow: hidden;
 	background-color: white;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 }
-@media (min-width:500px) {
+@media (min-width:800px) {
 	.twitter-instance{
-		margin-top: 25px;
-		border-radius: 10px;
+		margin-top: calc(800px*25/100);
+		border-radius: calc(800px*2/100);
 	}
 }
 .twitter-instance.mobile{
 	/* ratio 1.38 */
 	height: 50vw;
-	max-height:253px; /* 350/1.38 */
+	height: calc(85vw/1.38);
+	max-height:253px;
 }
 .twitter-instance.pc{
 	/* ratio 1.49 */
-	height: 47vw;
-	max-height:235px; /* 350/1.49 */
+	height: calc(85vw/1.49);
+	max-height:calc(800px*85/100/1.49);
 }
 .twitter-instance:hover{
 	border: solid 1px #BBB;
@@ -226,22 +228,28 @@ header{
 	padding: 3.5% 3% 0;
 	font-weight: 200;
 }
-@media (min-width:500px){
+@media (min-width:800px){
 	.twitter-instance-title.mobile{
-		font-size: 17.5px;
+		font-size:calc(800px*3.5/100);
 }}
 .twitter-instance-title.pc{
-	font-size: 2vw;
+	font-size: 2.5vw;
 	padding: 2.5% 2.5% 0;
 	font-weight: 600;
 }
-@media (min-width:500px){
+@media (min-width:800px){
 	.twitter-instance-title.pc{
-		font-size: 10px;
+		font-size:calc(800px*2.5/100);
 }}
+
+/* フォームのサイズ合わせ */
+.twitter-instance-title input,.twitter-instance-description input{
+	width:100%;
+}
 
 /* フォーム */
 input{
+	font-size: 2.5vw;
   margin: 0;
   padding: 0;
   background: none;
@@ -252,6 +260,11 @@ input{
   -moz-appearance: none;
   appearance: none;
 }
+@media(min-width:800px){
+	input{
+		font-size:calc(800px*2.5/100);
+	}
+}
 input[name="submit"]{
 	position: absolute;
 	top:90%;
@@ -261,12 +274,13 @@ input[name="submit"]{
 	color: white;
 	border-radius:3px;
 }
-
+/*
 .picture-upload{
 	position: absolute;
 	display: none;
 }
-input[name="upfile"]{
+*/
+.twitter-instance-picture-frame.pc input[name="upfile"]{
 	position:absolute;
 	top:0;
 	left:0;
@@ -274,16 +288,32 @@ input[name="upfile"]{
 	height:75%;
 	display: none;
 }
+/* 『クリックして画像を追加』 */
+.text-on-twitter-picture{
+	position:absolute;
+	display: inline-block;
+	font-size:4vw;
+	color: white;
+	width:100%;
+	top:62%;
+	text-align: center;
+	pointer-events: none;
+}
+@media(min-width:800px){
+	.text-on-twitter-picture{
+		font-size:calc(800px*4/100);
+	}
+}
 
 /* Twitterカード - 説明文（PC版限定）*/
 .twitter-instance-description.pc{
-	font-size: 2vw;
+	font-size: 2.5vw;
 	padding: 1.5% 2.5% 0;
 	font-weight: 300;
 }
-@media (min-width:500px){
+@media (min-width:800px){
 	.twitter-instance-description.pc{
-		font-size: 10px;
+		font-size:calc(800px*2.5/100);
 }}
 
 /* Twitterカード - URL */
@@ -294,20 +324,21 @@ input[name="upfile"]{
 	color: #557;
 	padding: 2.5% 3.5% 0;
 	font-weight: 200;
+	pointer-events: none;
 }
-@media (min-width:500px){
+@media (min-width:800px){
 	.twitter-instance-url.mobile{
-		font-size: 17.5px;
+		font-size:calc(800px*3.5/100);
 }}
 .twitter-instance-url.pc{
-	font-size: 2vw;
+	font-size: 2.5vw;
 	color: #99A;
 	padding: 2% 3% 0;
 	font-weight: 400;
 }
-@media (min-width:500px){
+@media (min-width:800px){
 	.twitter-instance-url.pc{
-		font-size: 10px;
+		font-size:calc(800px*2.5/100);
 }}
 
 /* ページ下部の余白 */
