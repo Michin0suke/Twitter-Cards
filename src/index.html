@@ -152,21 +152,6 @@ input, select {
 }
 /*----------------リセットCSS ここまで------------------*/
 
-/* フォーム　リセット　スニペット */
-/*
-input, button, textarea, select {
-  margin: 0;
-  padding: 0;
-  background: none;
-  border: none;
-  border-radius: 0;
-  outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-*/
-
 /*---全体---*/
 html{
 	width: 100%;
@@ -181,7 +166,6 @@ body{
 }
 
 #wrapper{
-	/*position: fixed;*/
 	width: 100%;
 	height: 100%;
 }
@@ -210,24 +194,18 @@ header{
 	width: 85vw;
 	max-width:calc(800px*85/100);
 	margin: 0 auto;
-	margin-top: 25vw;
+	margin-top: 50px;
 	overflow: hidden;
 	background-color: white;
 	box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 }
 @media (min-width:800px) {
 	.twitter-instance{
-		margin-top: calc(800px*25/100);
+		/*margin-top: calc(800px*25/100);*/
 		border-radius: calc(800px*2/100);
 	}
 }
-.twitter-instance.mobile{
-	/* ratio 1.38 */
-	height: 50vw;
-	height: calc(85vw/1.38);
-	max-height:253px;
-}
-.twitter-instance.pc{
+.twitter-instance{
 	/* ratio 1.49 */
 	height: calc(85vw/1.49);
 	max-height:calc(800px*85/100/1.49);
@@ -251,10 +229,7 @@ header{
 	margin:0;
 	overflow: hidden;
 }
-.twitter-instance-picture-frame.mobile{
-	height:72%;
-}
-.twitter-instance-picture-frame.pc{
+.twitter-instance-picture-frame{
 	height:75%;
 }
 /* なんでうまくいっているのかわからない */
@@ -266,23 +241,12 @@ header{
 /* Twitterカード - タイトル*/
 .twitter-instance-title{
 	color: #333;
-}
-.twitter-instance-title.mobile{
-	font-size: 3.5vw;
-	padding: 3.5% 3% 0;
-	font-weight: 200;
-}
-@media (min-width:800px){
-	.twitter-instance-title.mobile{
-		font-size:calc(800px*3.5/100);
-}}
-.twitter-instance-title.pc{
 	font-size: 2.5vw;
 	padding: 2.5% 2.5% 0;
 	font-weight: 600;
 }
 @media (min-width:800px){
-	.twitter-instance-title.pc{
+	.twitter-instance-title{
 		font-size:calc(800px*2.5/100);
 }}
 
@@ -310,11 +274,16 @@ input{
 	}
 }
 input[name="submit"]{
-	padding: 3px;
-	margin:0 auto;
+	display: block;
+	padding: 10px 30px;
+	font-size:30px;
 	background-color: #00acee;
 	color: white;
-	border-radius:3px;
+	border-radius:10px;
+	margin:30px auto 0;
+}
+input[name="submit"]:hover{
+	opacity: 0.8;
 }
 /*
 .picture-upload{
@@ -322,7 +291,7 @@ input[name="submit"]{
 	display: none;
 }
 */
-.twitter-instance-picture-frame.pc input[name="upfile"]{
+.twitter-instance-picture-frame input[name="upfile"]{
 	position:absolute;
 	top:0;
 	left:0;
@@ -348,38 +317,27 @@ input[name="submit"]{
 }
 
 /* Twitterカード - 説明文（PC版限定）*/
-.twitter-instance-description.pc{
+.twitter-instance-description{
 	font-size: 2.5vw;
 	padding: 1.5% 2.5% 0;
 	font-weight: 300;
 }
 @media (min-width:800px){
-	.twitter-instance-description.pc{
+	.twitter-instance-description{
 		font-size:calc(800px*2.5/100);
 }}
 
 /* Twitterカード - URL */
 .twitter-instance-url{
 }
-.twitter-instance-url.mobile{
-	font-size: 3.5vw;
-	color: #557;
-	padding: 2.5% 3.5% 0;
-	font-weight: 200;
-	pointer-events: none;
-}
-@media (min-width:800px){
-	.twitter-instance-url.mobile{
-		font-size:calc(800px*3.5/100);
-}}
-.twitter-instance-url.pc{
+.twitter-instance-url{
 	font-size: 2.5vw;
 	color: #99A;
 	padding: 2% 3% 0;
 	font-weight: 400;
 }
 @media (min-width:800px){
-	.twitter-instance-url.pc{
+	.twitter-instance-url{
 		font-size:calc(800px*2.5/100);
 }}
 
@@ -399,30 +357,10 @@ input[name="submit"]{
 				<h1 class="header-title">Twitter Cards</h1>
 			</header>
 			
-			<!--
-			<div class="twitter-instance mobile">
-				<a href="" target="_blank"></a>
-				<div class="twitter-instance-picture-frame mobile">
-					<img class="twitter-instance-picture mobile" src="assets/img/roa.jpg">
-				</div>
-				<form action="view.php" method="POST">
-					<input type="text" name="title" class="twitter-instance-title mobile" placeholder="タイトルを入力">
-					<input type="submit" value="submit">
-				</form>
-				<p class="twitter-instance-url mobile">twitter-cards.com</p>
-			</div>
-			-->
-			
-			<form class="twitter-instance pc" action="view.php" method="POST" enctype="multipart/form-data">
-				<!--<form action="view.php" method="POST">-->
+			<form action="view.php" method="POST" enctype="multipart/form-data">
+				<div class="twitter-instance">
 					
-					<!--<a href="https://twitter.com/sqroller" target="_blank"></a>-->
-					<!--<div class="twitter-instance-picture-frame pc">-->
-						<!--<img class="twitter-instance-picture pc" src="assets/img/debi.jpg">-->
-					<!--</div>-->
-					
-					<label class="twitter-instance-picture-frame pc">
-						<!--<img class="twitter-instance-picture" src="assets/img/icon-picture.png">-->
+					<label class="twitter-instance-picture-frame">
 						
 						<div class="preview">
 							<svg data-name="icon-picture" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3248.5 1700.79"><title>icon-picture</title><rect width="3248.5" height="1700.79" style="fill:#cd7378"/><polygon points="1512.62 1700.79 1056.51 1240.34 2221.54 1240.34 2221.54 488.41 3248.5 1517.91 3248.5 1700.79 1512.62 1700.79" style="fill:#b9676c"/><rect x="1027.19" y="460.4" width="1194.35" height="779.94" style="fill:#fff"/><rect x="1109.74" y="535.71" width="1029.25" height="629.32" style="fill:#b1d3c2"/><circle cx="1529.56" cy="696.92" r="83.08" style="fill:#e6ebc4"/><path d="M1109.74,1165c322-391.54,263.44-395.78,587.93,0Z" style="fill:#7fba93"/><path d="M1455.28,1165c430.05-526.75,341.86-532.62,683.71-116.26V1165Z" style="fill:#7fba93"/><path d="M1575.75,1014.89c-35.08,44.27-74.85,94.26-120.47,150.14h242.39C1649.39,1106.14,1609.59,1056.11,1575.75,1014.89Z" style="fill:#63af7c"/><rect x="1638.17" y="460.4" width="583.37" height="779.94" style="fill:#040000;opacity:0.12"/></svg>
@@ -436,14 +374,16 @@ input[name="submit"]{
 					<p class="text-on-twitter-picture">クリックして画像を追加</p>
 					
 					<!--<p class="twitter-instance-title pc">Twitterカードを再現してみた</p>-->
-					<p class="twitter-instance-title pc"><input type="text" name="title" placeholder="タイトルを入力"></p>
+					<p class="twitter-instance-title"><input type="text" name="title" placeholder="タイトルを入力"></p>
 					
 					<!--<p class="twitter-instance-description pc">これはPC版の表示。上のやつはモバイルアプリの表示。</p>-->
-					<p class="twitter-instance-description pc"><input type="text" name="description" placeholder="説明を入力"></p>
+					<p class="twitter-instance-description"><input type="text" name="description" placeholder="説明を入力"></p>
 					
-					<input type="submit" name="submit" value="決定">
-				<!--</form>-->
-				<p class="twitter-instance-url pc">twitter-cards.com</p>
+					<!--</form>-->
+					<p class="twitter-instance-url">twitter-cards.com</p>
+				</div>
+				
+				<input type="submit" name="submit" value="決定">
 			</form>
 			
 			<!--<div class="preview" />-->
@@ -451,7 +391,6 @@ input[name="submit"]{
 			<div class="fotter-margin"></div>
 		</div>
 		
-		<!--<script src="assets/js/twitter-card-picture.js"></script>-->
 	</body>
 <script>
 	
