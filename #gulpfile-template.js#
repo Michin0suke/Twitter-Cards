@@ -1,0 +1,46 @@
+Last login: Thu Apr 25 16:08:26 on ttys000
+michinosuke-PC:~ michinosuke$ cd maezawa_backup/
+michinosuke-PC:maezawa_backup michinosuke$ ls
+maezawa_backup_20190201		maezawa_v06
+maezawa_v01			maezawa_v07_20190224
+maezawa_v02			maezawa_v08_20190326
+maezawa_v03_20190127_am6	maezawa_v09_20190402
+maezawa_v04_20190201		抽選.xlsm
+maezawa_v05_20190210
+michinosuke-PC:maezawa_backup michinosuke$ cd cd
+-bash: cd: cd: No such file or directory
+michinosuke-PC:maezawa_backup michinosuke$ 
+michinosuke-PC:maezawa_backup michinosuke$ cd maezawa_v01
+michinosuke-PC:maezawa_v01 michinosuke$ emacs package.json
+michinosuke-PC:maezawa_v01 michinosuke$ emacs gulpfile.js
+
+
+
+
+
+
+
+
+
+File Edit Options Buffers Tools JavaScript Help                                 
+            }));
+});
+
+gulp.task("default", function () {
+    // scssフォルダを監視し、変更があったらコンパイルする                       
+    gulp.watch('node_modules/bootstrap/scss/*.scss',gulp.series('css', 'mincss'\
+));
+});
+
+gulp.task("upload",function () {
+    return gulp.src(['index.html','src/bootstrap/css/bootstrap.min.css','src/bo\
+otstrap/css/custom-michinosuke.css'],{base:'./'})
+        //.pipe(plumber())                                                      
+        .pipe(sftp({
+            host:'sqroller.sakura.ne.jp',
+            //port: 21,                                                         
+            user:'sqroller',
+            pass:'hpz8n5u364',
+            remotePath:'/home/sqroller/www/maezawa/',
+            //timeout:100000                                                    
+        }));

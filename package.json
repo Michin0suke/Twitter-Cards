@@ -1,0 +1,32 @@
+{
+  "name": "twitter-cards",
+  "version": "1.0.0",
+  "description": "twitter-cards.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Michin0suke/Twitter-Cards.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Michin0suke/Twitter-Cards/issues"
+  },
+  "homepage": "https://github.com/Michin0suke/Twitter-Cards#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^4.0.1",
+    "pug": "^2.0.3",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sftp-up4": "^0.1.8",
+    "process": "^0.11.10"
+  }
+}
