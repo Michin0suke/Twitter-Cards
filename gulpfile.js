@@ -35,7 +35,7 @@ gulp.task("default", function () {
 });
 
 gulp.task("php-upload",function () {
-    return gulp.src(['*.php'],{base:'./'})
+    return gulp.src(['*.php','index.html','style.css'],{base:'./'})
         //.pipe(plumber())
         .pipe(sftp({
             host:'sqroller.sakura.ne.jp',
@@ -45,14 +45,15 @@ gulp.task("php-upload",function () {
             remotePath:'/home/sqroller/www/twitter-cards/'
             //timeout:100000
         }))
-				.pipe(notify({
-						title:'phpをアップロードしました',
-						message: new Date(),
-						sound: 'Pop',
-						icon: 'icon.png'
-				}))
+	.pipe(notify({
+	    title:'phpをアップロードしました',
+	    message: new Date(),
+	    sound: 'Pop',
+	    icon: 'icon.png'
+	}));
 });
 
 gulp.task("php-watch", function () {
-	gulp.watch('*.php',gulp.task('php-upload'));
+    gulp.watch('*.php',gulp.task('php-upload'));
+    gulp.watch('index.html',gulp.task('php-upload'));
 });

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<!-- ファイル構造の参考: https://qiita.com/y_hokkey/items/871c23c24d31021d7c40 -->
+	<head>
+		<title>Twitter Cards</title>
+		<meta charset="utf-8">
+		<meta name="description" content="Twitterでリンク付きの画像をツイートできます。">
+		<!--Twitterでリンク付きの画像をツイートできます。-->
+		<meta name="keywords" content="Twitter,Tweet,ツイッター,ツイート,picture,link,画像,リンク,twittercard,twitterカード">
+		
+		<!-- URLの正規化 -->
+		<link rel="canonical" href="http://twitter-cards.com">
+		
+		<!-- アプリとして表示 -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+
+		<!-- ホーム画面 -->
+		<meta name="apple-mobile-web-app-title" content="Maezawa">
+    <!-- Apple Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+		
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@Twi_Cards" />
+		<meta property="og:url" content="http://twitter-cards.com" />
+		<meta property="og:title" content="Twitter Cards" />
+		<meta property="og:description" content="Twitterカードを再現してみた" />
+		<meta property="og:image" content="http://twitter-cards.com/assets/img/card.png" />
+		<!-- 参考: https://saruwakakun.com/html-css/reference/twitter-card -->
+		<!-- 旧参考: https://qiita.com/Hosh0801ict/items/86bd0810fe57a4620f9e -->
+		
+		<!-- Viewport -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		
+		<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+		<![endif]-->
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		
+		<link rel="stylesheet" href="style.css">
+		
+	</head>
+	
+	<body>
+		<div id="wrapper">
+			<header>
+				<!--<img id="header-image" src="assets/img/header-image">-->
+				<h1 class="header-title">Twitter Cards</h1>
+			</header>
+			
+			<form action="result.php" method="POST" enctype="multipart/form-data" onSubmit="return imgCheck()">
+				<div class="twitter-instance">
+					
+					<label class="twitter-instance-picture-frame">
+						
+							<svg class="default-picture" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3248.5 1700.79"><rect width="3248.5" height="1700.79" style="fill:#cd7378"/><polygon points="1512.62 1700.79 1056.51 1240.34 2221.54 1240.34 2221.54 488.41 3248.5 1517.91 3248.5 1700.79 1512.62 1700.79" style="fill:#b9676c"/><rect x="1027.19" y="460.4" width="1194.35" height="779.94" style="fill:#fff"/><rect x="1109.74" y="535.71" width="1029.25" height="629.32" style="fill:#b1d3c2"/><circle cx="1529.56" cy="696.92" r="83.08" style="fill:#e6ebc4"/><path d="M1109.74,1165c322-391.54,263.44-395.78,587.93,0Z" style="fill:#7fba93"/><path d="M1455.28,1165c430.05-526.75,341.86-532.62,683.71-116.26V1165Z" style="fill:#7fba93"/><path d="M1575.75,1014.89c-35.08,44.27-74.85,94.26-120.47,150.14h242.39C1649.39,1106.14,1609.59,1056.11,1575.75,1014.89Z" style="fill:#63af7c"/><rect x="1638.17" y="460.4" width="583.37" height="779.94" style="fill:#040000;opacity:0.12"/></svg>
+						
+						<input type="file" name="upImgFile" onchange="OnFileSelect( this );" data-image-tag-id="#twitter-instance-picture"  required>
+						
+					</label>
+				
+					<p class="text-on-twitter-picture">クリックして画像を追加</p>
+					
+						<textarea type="text" name="title" rows="2" maxlength="200" placeholder="タイトルを入力" required></textarea>
+
+						<textarea type="text" name="description" rows="2" maxlength="200" placeholder="説明を入力" required></textarea>
+
+						<!--</form>-->
+						<!--<p class="twitter-instance-url">twitter-cards.com</p>-->
+						
+				</div>
+				
+				<textarea type="text" name="url" placeholder="URLを入力" required></textarea>
+				
+				<input type="submit" rows="2" name="submit" value="決定">
+			</form>
+			
+				<!--<div class="preview" />-->
+			
+			<div class="fotter-margin"></div>
+		</div>
+		
+	</body>
+<script>
+	
+// documentと毎回書くのがだるいので$に置き換え
+var $ = document; 
+var $form = $.querySelector('form');// jQueryの $("form")相当
+
+//jQueryの$(function() { 相当(ただし厳密には違う)
+$.addEventListener('DOMContentLoaded', function() {
+    //画像ファイルプレビュー表示
+    //  jQueryの $('input[type="file"]')相当
+    // addEventListenerは on("change", function(e){}) 相当
+    $.querySelector('input[name="upImgFile"]').addEventListener('change', function(e) {
+        var file = e.target.files[0],
+               reader = new FileReader(),
+               $preview =  $.querySelector(".preview"), // jQueryの $(".preview")相当
+							 $text =  $.querySelector(".text-on-twitter-picture"),
+               t = this;
+
+        // 画像ファイル以外の場合は何もしない
+        if(file.type.indexOf("image") < 0){
+					e.target = "";
+          return false;
+        }
+
+        reader.onload = (function(file) {
+          return function(e) {
+             //jQueryの$preview.empty(); 相当
+             while ($preview.firstChild) $preview.removeChild($preview.firstChild);
+						// 画像を追加する文字を消す
+						$text.removeChild($text.firstChild);
+
+            // imgタグを作成
+            var img = document.createElement( 'img' );
+            img.setAttribute('src',  e.target.result);
+            img.setAttribute('width', '100%');
+            img.setAttribute('title',  file.name);
+            // imgタグを$previeの中に追加
+            $preview.appendChild(img);
+          }; 
+        })(file);
+
+        reader.readAsDataURL(file);
+    }); 
+});
+
+function onTypeReturn (event) {
+	console.log(event.key);
+	if(event.key == "Enter"){
+		console.log("return false");
+		event.returnValue = false;
+	}
+};
+
+document.querySelector('textarea[name="title"]').addEventListener('keydown',onTypeReturn);
+document.querySelector('textarea[name="description"]').addEventListener('keydown',onTypeReturn);
+document.querySelector('textarea[name="url"]').addEventListener('keydown',onTypeReturn);
+
+	
+	function imgCheck(){
+		var flg = 0;
+
+		if($form.title == "" || $form.description == ""){
+			flg = 1;
+		}else if($form.url){}
+	}
+</script>
+</html>

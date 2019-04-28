@@ -1,0 +1,31 @@
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<body style="background-color=white">
+		
+	<div id="id">bye</div>
+<script>
+	
+	/*
+var id = document.getElementById('id');
+id.addEventListener('click',outputLog);
+function outputLog(e){
+	console.dir(e);
+	console.log("event: " + e);
+}
+*/
+	
+document.onkeydown = function(){
+document.body.style.backgroundColor = "red";
+}
+document.onkeypress = function(){
+document.body.style.backgroundColor = "gray";
+}
+document.onkeyup = function(){
+document.body.style.backgroundColor = "white";
+}
+
+</script>
+	</body>
+</html>
